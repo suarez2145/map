@@ -1,0 +1,17 @@
+    .top-marg {
+        margin-top: 7em;
+    }
+
+    @media (max-width: 767px) {
+    // Add a margin-top of 6em for mobile devices and lower
+        .add-marg {
+            margin-top: 6em;
+        }
+    }
+
+    // Media query for mobile view and up
+    @media (min-width: 768px) {
+        .add-marg {
+            margin-top: 9em;
+        }
+    }
