@@ -46,37 +46,43 @@ export default function Header() {
     }
 
 
-    useEffect(() => {
-        const pathsArr = Object.keys(pathsNumbers).map((key) =>
-            document.getElementById(key)
-        );
-        
-        pathsArr.forEach((pathNode) => {
-            pathNode.addEventListener('click', () => {
+
+useEffect(() => {
+    const pathsArr = Object.keys(pathsNumbers).map((key) =>
+        document.getElementById(key)
+    );
+
+    pathsArr.forEach((pathNode) => {
+        pathNode.addEventListener('click', () => {
             setLocalClickedObj((prevLocalClickedObj) => {
                 const updatedLocalClickedObj = { ...prevLocalClickedObj };
-        
+
                 if (pathNode.id in updatedLocalClickedObj) {
-                // Path is already clicked, remove it
-                delete updatedLocalClickedObj[pathNode.id];
-                pathNode.style.fill = pathNode.attributes.fill.value; // Use the fill attribute
+                    // Path is already clicked, remove it
+                    delete updatedLocalClickedObj[pathNode.id];
+                    pathNode.style.fill = pathNode.attributes.fill.value; // Use the fill attribute
                 } else {
-                // Path is not clicked, add it
-                updatedLocalClickedObj[pathNode.id] = pathsNumbers[pathNode.id];
-                pathNode.style.fill = 'red';
+                    // Path is not clicked, add it
+                    updatedLocalClickedObj[pathNode.id] = pathsNumbers[pathNode.id];
+                    pathNode.style.fill = 'red';
                 }
-        
+
                 return updatedLocalClickedObj;
             });
-            });
         });
-        
-        // Clean up the event listeners when the component unmounts
-        return () => {
-            pathsArr.forEach((pathNode) => {
-            pathNode.removeEventListener('click', () => {});
-            });
-        };
+
+        // Add the onmouseover event
+        pathNode.addEventListener('mouseover', () => {
+            pathNode.classList.toggle('hovered-path'); // Toggle the 'hovered-path' class
+        });
+
+        // Add the onmouseout event to remove the class when the mouse leaves
+        pathNode.addEventListener('mouseout', () => {
+            pathNode.classList.toggle('hovered-path');
+        });
+    });
+
+
 }, []);
 
     return (
