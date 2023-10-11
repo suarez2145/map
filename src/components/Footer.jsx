@@ -20,16 +20,19 @@ export default function Footer() {
 
     return (
         <footer className="container-fluid g-0 to_btm d-flex justify-content-end"> 
+        <div>
             <div className="button-cont">
-            {isRunning ?
-                <button id="pause-button" className="bg-transparent border-0" onClick={toggleVideo}>
-                    <img src="pause.png"></img>
-                </button> : 
-                <button id="play-button" className="bg-transparent border-0" onClick={toggleVideo}>
-                    <img src="play-buttton.png"></img>
-                </button>
-            }
+                {isRunning ?
+                    <button id="pause-button" className="bg-transparent border-0" onClick={toggleVideo}>
+                        <img src="pause.png"></img>
+                    </button> : 
+                    <button id="play-button" className="bg-transparent border-0" onClick={toggleVideo}>
+                        <img src="play-buttton.png"></img>
+                    </button>
+                }
             </div>
+        </div>
+
         </footer>
     )
 }
