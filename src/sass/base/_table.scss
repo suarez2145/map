@@ -3,6 +3,14 @@
 }
 
 
+@media (min-width: 545px) and (orientation: landscape) {
+    .custom-col-tab {
+        flex: 0 0 auto !important;
+        width: 33.33333333% !important;
+    }
+
+}
+
 @media (max-width: 1300px) {
     .custom-table-container {
         max-height: 225px;

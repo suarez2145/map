@@ -90,7 +90,7 @@ useEffect(() => {
 
     return (
         <div className="container-fluid row map-cont">
-            <svg className="container-fluid add-marg-map col-12 col-md-8 col-lg-10" id="map" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="36 8 870 500" xml:space="preserve" height="90%" width="90%" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg">
+            <svg className="container-fluid add-marg-map col-12 custom-col col-lg-10" id="map" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="36 8 870 500" xml:space="preserve" height="90%" width="90%" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg">
                 <g id="artccs">
                 <text x="819.9039856982276" y="117.69341767483292" text-anchor="middle" class="region_label" id="Home-path-zbw_text">
                     ZBW
@@ -227,7 +227,7 @@ useEffect(() => {
             </svg>
             {/* taking advantage of the easy conditional rendering with react so if my localClickedObj is empty then the table will not appear  */}
             {Object.keys(localClickedObj).length > 0 ? (
-                <div className="col-12 col-md-4 col-lg-4 custom-table-container">
+                <div className="col-12 col-lg-4 custom-col-tab custom-table-container">
                     <table className="table table-sm table-borderless table-bug add-marg">
                     <thead>
                         <tr>
