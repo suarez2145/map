@@ -1,0 +1,20 @@
+.map-cont {
+    position: absolute;
+}
+
+.add-marg-map {
+    margin-left: 0;
+    margin-top: auto;
+}
+
+@media (max-width: 767px) {
+    // Add a margin-top of 6em for mobile devices and lower
+        .add-marg-map {
+            margin-bottom: 6em;
+        }
+
+        .map-cont {
+            margin-top: 1.5em;
+            margin-left: auto;
+        }
+}

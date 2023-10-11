@@ -1,17 +1,18 @@
 
 .to_btm {
     position: absolute;
-    left: 0;
-    right: 0;
+    bottom: 0;
 }
+
+.button-cont {
+    padding: 10px;
+} 
+
 
 .col-hgt {
-    height: 15rem;
+    height: 10rem;
 }
 
-.footer-spacer {
-    min-height: calc(100vh - 34px);
-}
 
 
 

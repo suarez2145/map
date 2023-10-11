@@ -6,7 +6,7 @@ import Divider from "./components/Divider";
 const Layout = ({children}) => {
   return (
     <>
-      <div className="layout footer-spacer container-fluid g-0">
+      <div className="layout footer-spacer lay-cover container-fluid g-0">
         {children}
       </div>
       <Divider/>

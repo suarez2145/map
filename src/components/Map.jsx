@@ -1,7 +1,6 @@
 import React from 'react';
 import {useEffect, useState} from "react";
 import  "../sass/style.scss";
-import mapSvg from "../assets/map.svg";
 import randomColor from "randomcolor";
 let colortest = randomColor(); 
 
@@ -15,7 +14,11 @@ export default function Header() {
 
     // i am looping over the colorList array and if the random color hex code generated is not already in the array then it is appended 
     for (let i = 0; i < colorLimit; i++ ) {
-        let colortest = randomColor();
+
+        let colortest = randomColor({
+            hue:"#668474",
+            luminosity:"dark"
+        });
         if (colortest != colorList[i]) {
             colorList.push(colortest);
         }
@@ -86,8 +89,8 @@ useEffect(() => {
 }, []);
 
     return (
-        <div className="container-fluid row">
-            <svg className="container-fluid  add-marg   col-12 col-lg-9" id="map" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="36 8 870 500" xml:space="preserve" height="90%" width="90%" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg">
+        <div className="container-fluid row map-cont">
+            <svg className="container-fluid add-marg-map col-12 col-lg-10" id="map" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="36 8 870 500" xml:space="preserve" height="90%" width="90%" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg">
                 <g id="artccs">
                 <text x="819.9039856982276" y="117.69341767483292" text-anchor="middle" class="region_label" id="Home-path-zbw_text">
                     ZBW
@@ -224,19 +227,19 @@ useEffect(() => {
             </svg>
             {/* taking advantage of the easy conditional rendering with react so if my localClickedObj is empty then the table will not appear  */}
             {Object.keys(localClickedObj).length > 0 ? (
-                <div className="col-12 col-lg-3">
-                    <table className="table">
+                <div className="col-12 col-lg-4 custom-table-container">
+                    <table className="table table-sm table-borderless table-bug add-marg">
                     <thead>
                         <tr>
-                        <th scope="col">Zone</th>
-                        <th scope="col">Number</th>
+                        <th className="bk-rmv text-white" scope="col">Zone</th>
+                        <th className="bk-rmv text-white" scope="col">Number</th>
                         </tr>
                     </thead>
                     <tbody>
                     {Object.entries(localClickedObj).map(([key, value], i) => (
                             <tr key={i}>
-                                <td>{key}</td>
-                                <td>{value}</td>
+                                <td className="bk-rmv text-white">{key}</td>
+                                <td className="bk-rmv text-white">{value}</td>
                             </tr>
                     ))}
                     </tbody>

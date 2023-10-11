@@ -1,0 +1,25 @@
+.bk-rmv {
+    background: none !important;
+}
+
+
+@media (max-width: 1300px) {
+    .custom-table-container {
+        max-height: 225px;
+        overflow-y: auto;
+        display: block;
+        text-align: center;
+        table {
+            width: 100%;
+        }
+    }  
+}
+
+@media (max-width: 767px) {
+    .custom-table-container {
+        max-height: 350px;
+        text-align: center;
+    }
+
+}
+

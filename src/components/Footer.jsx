@@ -1,20 +1,34 @@
 import React from 'react';
 import  "../sass/style.scss";
+import {useState} from "react";
 
 
 export default function Footer() {
+
+    const [isRunning, setRun] = useState(true);
+
+// creating a pause/play button for my video. i dont like the default controls 
+        let toggleVideo = () => {
+            setRun(!isRunning);
+            let vidPlayer = document.getElementById('vid_player');
+            if(isRunning) {
+                vidPlayer.pause()
+            } else {
+                vidPlayer.play()
+            }
+        }
+
     return (
-        <footer className="container-fluid g-0 to_btm"> 
-            <div className="row w-100 gx-0 col-hgt">
-                <div className="col-12 col-sm-4 bg-secondary horizontal_pipe">
-                <div className="h-100 w-100 d-flex justify-content-center"><p></p></div>
-                </div>
-                <div className="col-12  col-sm-4  bg-secondary center_pipes">
-                <div className="h-100 w-100 d-flex justify-content-center"><p></p></div>
-                </div>
-                <div className="col-12  col-sm-4  bg-secondary center_pipes_right">
-                <div className="h-100 w-100 d-flex justify-content-center"><p></p></div>
-                </div>
+        <footer className="container-fluid g-0 to_btm d-flex justify-content-end"> 
+            <div className="button-cont">
+            {isRunning ?
+                <button id="pause-button" className="bg-transparent border-0" onClick={toggleVideo}>
+                    <img src="/pause.png"></img>
+                </button> : 
+                <button id="play-button" className="bg-transparent border-0" onClick={toggleVideo}>
+                    <img src="/play-buttton.png"></img>
+                </button>
+            }
             </div>
         </footer>
     )

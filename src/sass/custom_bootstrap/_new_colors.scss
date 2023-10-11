@@ -1,0 +1,43 @@
+@import "/node_modules/bootstrap/scss/functions";
+
+
+// Optional variable overrides here
+
+// declaring new colors that i want to place in the bootstrap default them colors 
+$green-accent: #6B8E23;
+
+// added this to scale down the new table row colors a couple shades 
+$table-bg-scale: -30% !default;
+
+// adding all my declared new colors into a variable that i can pass to map-merge below to merge them into bootstrap default color themes 
+$custom-theme-colors: (
+    "bug": $green-accent,
+);
+
+// declaring my new table row colors that i want to aadd to the bootstrao default so i can use my api call pokemon types to color table row abckgrounds
+$custom-table-colors: (
+    "bug": shift-color($green-accent, $table-bg-scale),
+    // space for more custom colors i just have to declare them above and in here 
+);
+
+
+// Variables come next
+@import "/node_modules/bootstrap/scss/variables";
+@import "/node_modules/bootstrap/scss/variables-dark";
+
+// Optional Sass map overrides here
+$theme-colors: map-merge($theme-colors, $custom-theme-colors);
+$table-variants: map-merge($table-variants, $custom-table-colors);
+
+// Followed by our default maps
+@import "/node_modules/bootstrap/scss/maps";
+
+
+// Rest of our imports
+@import "/node_modules/bootstrap/scss/mixins";
+@import "/node_modules/bootstrap/scss/utilities";
+// without this api utlities my colors wouldnt get generated a bg and txt variant from bootstrap ******* very important *********
+@import "/node_modules/bootstrap/scss/utilities/api";
+@import "/node_modules/bootstrap/scss/root";
+// ***** imported this because new table variants were not being applied when new class EX: "table-fairy" was declared in html ....this fixed it but need to narrow down which import fixed it??
+@import "/node_modules/bootstrap/scss/bootstrap.scss"
