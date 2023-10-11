@@ -23,10 +23,10 @@ export default function Footer() {
             <div className="button-cont">
             {isRunning ?
                 <button id="pause-button" className="bg-transparent border-0" onClick={toggleVideo}>
-                    <img src="/pause.png"></img>
+                    <img src="pause.png"></img>
                 </button> : 
                 <button id="play-button" className="bg-transparent border-0" onClick={toggleVideo}>
-                    <img src="/play-buttton.png"></img>
+                    <img src="play-buttton.png"></img>
                 </button>
             }
             </div>
