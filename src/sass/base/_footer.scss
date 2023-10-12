@@ -13,6 +13,13 @@
     height: 10rem;
 }
 
+@media (min-width: 545px) and (orientation: landscape) {
+    .to_btm {
+        justify-content: flex-start !important;
+    }
+
+}
+
 
 
 
